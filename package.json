@@ -1,0 +1,23 @@
+{
+  "name": "netlify-scheduled-job",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuronbeck/netlify-scheduled-job.git"
+  },
+  "author": "Nurbek Ismoilov <nuronbeck@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuronbeck/netlify-scheduled-job/issues"
+  },
+  "homepage": "https://github.com/nuronbeck/netlify-scheduled-job#readme",
+  "dependencies": {
+    "@netlify/functions": "^1.4.0",
+    "axios": "^1.2.2"
+  }
+}
