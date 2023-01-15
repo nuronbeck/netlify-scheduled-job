@@ -23,8 +23,6 @@ exports.handler = schedule('* * * * *', async (event) => {
   const PUBLISH_HOOK_URL = process.env.PUBLISH_HOOK_URL;
   const PUBLISH_TIME = process.env.PUBLISH_TIME;
 
-  console.log("PUBLISH_HOOK_URL => ", proccess.env.PUBLISH_HOOK_URL);
-
   // Check every minute that matches 10:00
   if(TASHKENT_TIME === PUBLISH_TIME){
     console.log(`Scheduled job running at (${TASHKENT_TIME} / TASHKENT_TIME)...`);
