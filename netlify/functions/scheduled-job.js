@@ -28,7 +28,7 @@ exports.handler = schedule('* * * * *', async (event) => {
     console.log(`Scheduled job running at (${TASHKENT_TIME} / TASHKENT_TIME)...`);
 
     try {
-      axios.post(PUBLISH_HOOK_URL);
+      await axios.post(PUBLISH_HOOK_URL);
     } catch (error) {
       console.log("Error triggering hook => ", error?.message)
     }
