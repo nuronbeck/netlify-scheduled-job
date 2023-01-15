@@ -1,4 +1,5 @@
-import { schedule } from "@netlify/functions"
+const { schedule } = require('@netlify/functions');
+const axios = require('axios');
 
 // Everyday from Mon-Fri at 10:00
 // 0 10 * * 1-5
@@ -18,16 +19,21 @@ const getTashkentTime = () => {
 }
 
 exports.handler = schedule('* * * * *', async (event) => {
-  const tashkentTime = getTashkentTime();
+  const TASHKENT_TIME = getTashkentTime();
+  const PUBLISH_HOOK_URL = process.env.PUBLISH_HOOK_URL;
+  const PUBLISH_TIME = process.env.PUBLISH_TIME;
 
-  console.log("Scheduled job running...");
-  console.log("-------------");
-  console.log(tashkentTime);
-  console.log("-------------");
+  console.log("PUBLISH_HOOK_URL => ", proccess.env.PUBLISH_HOOK_URL);
 
   // Check every minute that matches 10:00
-  if(tashkentTime === '04:05'){
-    console.log(`Matched => ${tashkentTime}`);
+  if(TASHKENT_TIME === PUBLISH_TIME){
+    console.log(`Scheduled job running at (${TASHKENT_TIME} / TASHKENT_TIME)...`);
+
+    try {
+      axios.post(PUBLISH_HOOK_URL);
+    } catch (error) {
+      console.log("Error triggering hook => ", error?.message)
+    }
   }
 
   return {
